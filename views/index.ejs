@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= locals.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <h1><%= locals.title %></h1>
+    </header>
+    <main>
+      <div class="messageBoard">
+        <% locals.messages.forEach(element => { %>
+          <h2><%= element.text %></h2>  <p>- <%= element.user%></p><br>
+        <%});%>
+      </div>
+      <form method="post" action="/new">
+        <label for="userIn">User:</label>
+        <input type="text" name="user" id="userIn" required>
+        <label for="textIn">Text:</label>
+        <input type="text" name="text" id="textIn" required>
+        <button>Post</button>
+      </form>
+    </main>
+  </body>
+</html>
